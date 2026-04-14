@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRCTC Smart Promotion System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <header class="glass-panel">
+            <h1>IRCTC Smart Promotion System</h1>
+            <div class="header-stats">
+                <div class="stat-badge">
+                    <span>Full Seats Available:</span>
+                    <strong id="seats-available">--</strong>
+                </div>
+                <button id="toggle-tatkal-btn" class="btn status-btn">Tatkal: CLOSED</button>
+            </div>
+        </header>
+
+        <div class="grid-layout">
+            <!-- Left Column: Booking & Cancellation -->
+            <div class="column">
+                <section class="glass-panel form-section">
+                    <h2>Book Ticket</h2>
+                    <form id="booking-form">
+                        <div class="input-group">
+                            <label for="ticket-type">Ticket Type</label>
+                            <select id="ticket-type">
+                                <option value="normal">Normal</option>
+                                <option value="tatkal">Tatkal</option>
+                            </select>
+                        </div>
+                        <div id="passengers-container">
+                            <div class="passenger-entry">
+                                <h3>Passenger 1</h3>
+                                <div class="input-row">
+                                    <input type="text" class="p-name" placeholder="Name" required>
+                                    <select class="p-gender">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
+                                <div class="checkbox-group">
+                                    <input type="checkbox" class="p-rac">
+                                    <label>Accept RAC Sharing</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="add-passenger-btn" class="btn secondary">Add Passenger</button>
+                            <button type="submit" class="btn primary">Book Now</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="glass-panel form-section">
+                    <h2>Cancel Ticket</h2>
+                    <form id="cancel-form">
+                        <div class="input-group">
+                            <input type="text" id="cancel-name" placeholder="Exact Passenger Name" required>
+                        </div>
+                        <button type="submit" class="btn danger">Cancel Ticket</button>
+                    </form>
+                </section>
+                
+                <section class="glass-panel form-section console-logs">
+                    <h2>System Logs</h2>
+                    <ul id="log-list">
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Right Column: Status & Visualization -->
+            <div class="column">
+                <section class="glass-panel display-section">
+                    <h2>Coach Layout (Seat Tree)</h2>
+                    <div id="coach-layout" class="seats-grid">
+                        <!-- Seats will be injected here -->
+                    </div>
+                </section>
+
+                <div class="status-grid">
+                    <section class="glass-panel list-section">
+                        <h2>Active Passengers</h2>
+                        <ul id="active-list" class="passenger-list">
+                            <!-- Active mapped here -->
+                        </ul>
+                    </section>
+                    
+                    <section class="glass-panel list-section waitlist-section">
+                        <h2>Waitlist</h2>
+                        <ul id="waiting-list" class="passenger-list">
+                            <!-- Waitlist mapped here -->
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
